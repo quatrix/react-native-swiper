@@ -329,7 +329,7 @@ module.exports = _react2.default.createClass({
     var state = this.state;
     var index = state.index;
     var diff = offset[dir] - state.offset[dir];
-    var step = dir === 'x' ? state.width : state.height;
+    var step = dir === 'x' ? parseInt(state.width) : parseInt(state.height);
 
     // Do nothing if offset no change.
     if (!diff) return;
@@ -337,7 +337,7 @@ module.exports = _react2.default.createClass({
     // Note: if touch very very quickly and continuous,
     // the variation of `index` more than 1.
     // parseInt() ensures it's always an integer
-    index = parseInt(index + diff / step);
+    index = parseInt(index + parseInt(diff / step));
 
     if (this.props.loop) {
       if (index <= -1) {

@@ -314,7 +314,7 @@ module.exports = React.createClass({
     let state = this.state
     let index = state.index
     let diff = offset[dir] - state.offset[dir]
-    let step = dir === 'x' ? state.width : state.height
+    let step = dir === 'x' ? parseInt(state.width) : parseInt(state.height)
 
     // Do nothing if offset no change.
     if(!diff) return
@@ -322,7 +322,7 @@ module.exports = React.createClass({
     // Note: if touch very very quickly and continuous,
     // the variation of `index` more than 1.
     // parseInt() ensures it's always an integer
-    index = parseInt(index + diff / step)
+    index = parseInt(index + parseInt(diff / step))
 
     if(this.props.loop) {
       if(index <= -1) {
