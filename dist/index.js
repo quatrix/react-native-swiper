@@ -1,6 +1,5 @@
 'use strict';
 
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
                                                                                                                                                                                                                                                                    * react-native-swiper
                                                                                                                                                                                                                                                                    * @author leecade<leecade@163.com>
@@ -535,7 +534,7 @@ module.exports = _react2.default.createClass({
     );
   },
   renderScrollView: function renderScrollView(pages) {
-    if (_reactNative.Platform.OS === 'ios') return _react2.default.createElement(
+    return _react2.default.createElement(
       _reactNative.ScrollView,
       _extends({ ref: 'scrollView'
       }, this.props, this.scrollViewPropOverrides(), {
@@ -544,15 +543,6 @@ module.exports = _react2.default.createClass({
         onScrollBeginDrag: this.onScrollBegin,
         onMomentumScrollEnd: this.onScrollEnd,
         onScrollEndDrag: this.onScrollEndDrag }),
-      pages
-    );
-    return _react2.default.createElement(
-      _reactNative.ViewPagerAndroid,
-      _extends({ ref: 'scrollView'
-      }, this.props, {
-        initialPage: this.props.loop ? this.state.index + 1 : this.state.index,
-        onPageSelected: this.onScrollEnd,
-        style: { flex: 1 } }),
       pages
     );
   },
